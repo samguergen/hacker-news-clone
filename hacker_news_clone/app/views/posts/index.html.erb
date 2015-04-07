@@ -1,0 +1,9 @@
+<h1> All Posts </h1>
+<% @all_posts.each do |post|%>
+  <ul>
+    <li>
+      <b><a href= "/posts/<%=post.id%>"><%= post.title%></a></b>
+      <br><em><%= post.user.email%></em>
+    </li>
+  </ul>
+<%end%>
