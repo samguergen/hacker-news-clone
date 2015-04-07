@@ -1,13 +1,3 @@
 <% if current_user == @the_post.user || current_user == @the_comment.user %>
-  <%= form_for([@the_post, @the_comment]) do |f|%>
-  <fieldset>
-    <legend> Edit Comment </legend>
-    <%= f.label :content%>
-    <%= f.text_area :content, placeholder: 'Post something wonderful!'%>
-
-    <%= f.submit%>
-  </fieldset>
-  <%end%>
-<%else%>
-  redirect_to root_path
+  <%= render partial: 'form', locals: {title: 'Edit comment',the_post: @the_post, the_comment: @the_comment}%>
 <%end%>

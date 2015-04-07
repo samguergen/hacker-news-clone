@@ -9,7 +9,8 @@ class CommentsController < ApplicationController
   end
 
   def new
-    @new_comment = Comment.new
+    @the_post = Post.find_by(id: params[:post_id])
+    @the_comment = Comment.new
   end
 
   def create

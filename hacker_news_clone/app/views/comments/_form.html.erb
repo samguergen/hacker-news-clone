@@ -1,0 +1,9 @@
+<%= form_for([the_post, the_comment]) do |f|%>
+  <fieldset>
+    <legend> <%= title%> </legend>
+    <%= f.label :content%>
+    <%= f.text_area :content, placeholder: 'Post something wonderful!'%>
+
+    <%= f.submit%>
+  </fieldset>
+  <%end%>

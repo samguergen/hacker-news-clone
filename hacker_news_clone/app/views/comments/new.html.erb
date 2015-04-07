@@ -1,13 +1,3 @@
-<% if current_user%>
-  <%= form_for([:post, @new_comment]) do |f|%>
-  <fieldset>
-    <legend> Add New Comment </legend>
-    <%= f.label :content%>
-    <%= f.text_area :content, placeholder: 'Post something wonderful!'%>
-
-    <%= f.submit%>
-  </fieldset>
-  <%end%>
-<%else%>
-  "HELLLLLO YOU ARE HERE NOW. MUST LOGIN NOWWwWWWWWWWWw"
-<%end%>
+<% if current_user %>
+<%= render partial: 'form', locals: {title: 'Add new comment',the_post: @the_post, the_comment: @the_comment}%>
+<% end %>
