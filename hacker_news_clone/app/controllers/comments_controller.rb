@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
   def create
     @the_post = Post.find_by(id: params[:post_id])
     @new_comment = Comment.create!(comment_params)
-    redirect_to post_path
+    redirect_to post_path(@the_post)
   end
 
   def edit
@@ -39,7 +39,7 @@ class CommentsController < ApplicationController
     @the_comment = @the_post.comments.find_by(id: params[:id])
     if current_user == @the_post.user || current_user == @the_comment.user
       @the_comment.destroy!
-      redirect_to post_path
+      redirect_to post_path(@the_post)
     else
       redirect_to root_path
     end

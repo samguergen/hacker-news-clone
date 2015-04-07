@@ -5,21 +5,13 @@
   <dt><%=comment.user.name%></dt>
   <dd><%= comment.content %></dd>
 </dl>
-
-  <% p "************************************"%>
-  <% p session[:user_id]%>
-  <% p current_user%>
-    <% p current_user.id%>
-
-  <% p comment.user%>
-  <% p "************************************"%>
   <% if current_user == comment.user%>
-  <%= link_to 'Edit', edit_post_comment_path(@the_post, comment)%>
+    <%= link_to 'Edit', edit_post_comment_path(@the_post, comment)%>
 
-  <br><%= link_to 'Delete', post_comment_path(@the_post, comment), method: :delete,
-                                  data: { confirm: "You sure?" } %>
-<%end%>
-<p><%= link_to "Add a comment", new_post_comment_path(@the_post) %></p>
+    <br><%= link_to 'Delete', post_comment_path(@the_post, comment), method: :delete,
+                                    data: { confirm: "You sure?" } %>
+  <%end%>
 
 <% end %>
 
+<p><%= link_to "Add a comment", new_post_comment_path(@the_post) %></p>
