@@ -14,7 +14,8 @@ class PostsController < ApplicationController
 
   def create
     @new_post = Post.create!(post_params)
-    redirect_to "/posts/#{@new_post.id}"
+    redirect_to post_path(@new_post)
+    # redirect_to "/posts/#{@new_post.id}"
   end
 
   def edit
@@ -24,8 +25,8 @@ class PostsController < ApplicationController
   def update
     @the_post = Post.find_by(id: params[:id])
     if current_user == @the_post.user
-      @the_post.update_attributes(title: params[:title], content: params[:content])
-      redirect_to post_path
+      @the_post.update_attributes(post_params)
+      redirect_to post_path(@the_post)
     else
       redirect_to root_path
     end

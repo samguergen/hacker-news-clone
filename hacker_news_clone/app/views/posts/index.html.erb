@@ -1,4 +1,6 @@
 <h1> All Posts </h1>
+<%= link_to 'Submit a Post', new_post_path%>
+
 <% @all_posts.each do |post|%>
   <ul>
     <li>
@@ -7,3 +9,4 @@
     </li>
   </ul>
 <%end%>
+

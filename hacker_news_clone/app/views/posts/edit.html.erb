@@ -1,0 +1,16 @@
+<% if current_user%>
+  <%= form_for(@the_post) do |f|%>
+  <fieldset>
+    <legend> Edit Post </legend>
+    <%= f.label :title%>
+    <%= f.text_area :title, placeholder: 'Title Me'%><br>
+
+    <%= f.label :content%>
+    <%= f.text_area :content, placeholder: 'Post something wonderful!'%>
+
+    <%= f.submit%>
+  </fieldset>
+  <%end%>
+<%else%>
+  redirect_to root_path
+<%end%>

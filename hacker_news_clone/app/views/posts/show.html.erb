@@ -4,3 +4,14 @@
   <dd><%= @the_post.content %></dd>
 </dl>
 
+<% if current_user == @the_post.user%>
+  <%= link_to 'Edit my post', edit_post_path %>
+
+  <br><%= link_to "Delete my post", @the_post, method: :delete,
+                                  data: { confirm: "You sure?" } %>
+
+<%end %>
+
+
+
+<%= render 'comments/index' %>
